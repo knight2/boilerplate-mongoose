@@ -52,8 +52,17 @@ mongoose.connection.on("error", function(err) {
 // `default` values. See the [mongoose docs](http://mongoosejs.com/docs/guide.html).
 
 // <Your code here >
+var Schema = mongoose.Schema;
+var PersonSchema = new Schema({
+  /* Person Prototype */
+  name: {type: String, required: true},
+  age: Number,
+  favoriteFoods: [String]
+});
 
-var Person /* = <Your Model> */
+var Person = mongoose.model("Person", PersonSchema);
+
+/* = <Your Model> */
 
 // **Note**: GoMix is a real server, and in real servers interactions with
 // the db are placed in handler functions, to be called when some event happens
