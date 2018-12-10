@@ -1,7 +1,9 @@
 /**********************************************
-* 3. FCC Mongo & Mongoose Challenges
-* ==================================
+Mongo & Mongoose Challenges
 ***********************************************/
+var express = require('express');
+var app = express();
+require('dotenv').config(); //Use dotenv to read .env vars into Node
 
 /** # MONGOOSE SETUP #
 /*  ================== */
@@ -12,6 +14,8 @@
 // `mongoose`. Store your **mLab** database URI in the private `.env` file 
 // as `MONGO_URI`. Connect to the database using `mongoose.connect(<Your URI>)`
 
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true});
 
 /** # SCHEMAS and MODELS #
 /*  ====================== */
