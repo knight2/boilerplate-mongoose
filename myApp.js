@@ -15,7 +15,18 @@ require('dotenv').config(); //Use dotenv to read .env vars into Node
 // as `MONGO_URI`. Connect to the database using `mongoose.connect(<Your URI>)`
 
 const mongoose = require('mongoose');
+
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true});
+
+
+mongoose.connection.on("open", function(ref) {
+  console.log("Connected to mongo server.");
+});
+
+mongoose.connection.on("error", function(err) {
+  console.log("Could not connect to mongo server!");
+  return console.log(err);
+});
 
 /** # SCHEMAS and MODELS #
 /*  ====================== */
